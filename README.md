@@ -1,6 +1,6 @@
-# Practical 16 (week 8, practical 2): localStorage
+# Week 7 Practical 2: localStorage
 
-In this practical you will design and implement client-side data storage to improve the user experience for a handful of webpages. You will also explore free web APIs you can use to get data for your websites.
+In this practical you will design and implement client-side data storage to improve the user experience for a handful of webpages. 
 
 ## Stage 1: Viewing / modifying localStorage via Chrome for debugging purposes
 
@@ -35,9 +35,9 @@ Next, add some data to localStorage using Chrome (not code):
 - Try deleting data: right-click on the key name to delete the pair.
 
 ## Stage 2: Getting and setting simple storage data
-You will need your completed code for last practical, exercise 1 (the theme selector). You can also use the sample solution for that exercise if preferred. The website that you created for the first exercise in the last practical allowed the user to change the theme of the website. Enhance that website by saving the user’s preference in `localStorage`. If the user has a saved preference, the website should automatically render using their preferred theme. Here are the steps:
+You will need your completed code for last practical, exercise 2.1 (the theme selector). You can also use the sample solution for that exercise. The website that you created for exercise 2.1 in the last practical allowed the user to change the theme of the website. Enhance that website by saving the user’s preference in `localStorage`. If the user has a saved preference, the website should automatically render using their preferred theme. Here are the steps:
 
-1.	Decide the structure of the stored preference data. There are at least two different structures that would be appropriate.
+1.	Decide the structure of the stored preference data. There are multiple possible structures that would be appropriate.
 
 2.	When your script loads, it should check if the user has a preference. Remember from lecture that you can check if a key exists in `localStorage` using `localStorage.getItem(keyName)`. If the key does not exist, `getItem` will return `null`.
 
@@ -47,15 +47,22 @@ You will need your completed code for last practical, exercise 1 (the theme sele
 
 If you are storing data in a form more complex than a basic string (e.g. an object literal). Don't forget to use `JSON.stringify(yourData)` to correctly format the data for storage, and `JSON.parse(localStorage.getItem("yourKey"))` to convert the stored data back to its original type.
 
+Test that everything is working by choosing a new theme then closing your browser and reopening the page. If everything has worked, the selected theme should be remembered.
+
 ## Stage 3: Storing more complex data
+This stage is significantly more challenging. Try to complete it by yourself but remember that you can always consult the sample solutions.
+
 ### Exercise 3.1: Store contact form data
-You will need the completed cat adoption agency contact form you created for Practical 14. You can also use the sample solution if you prefer.
+You will need the completed cat adoption agency contact form you created for Week 4 Practical 2. You can also use the sample solution if you prefer.
 
 At the moment, nothing happens to the data entered in the form. If this were a real adoption agency website, enquiries sent via the contact form would at the very least be emailed to someone at the agency. They may also be sent to a database that would allow the agency to keep track of all enquiries.
 
 In this exercise, you will store the contact form data in `localStorage`. Local storage would not be an appropriate storage location for contact form data in a real application but you're being asked to complete this task to gain experience working with more complex data in JSON.
 
-When the submit button is clicked AND all data is determined to be valid (required fields are filled in), create a JavaScript object literal that stores all the data entered by the user. Remember that some questions in the form have follow up questions, so you will have to think about how to store those responses too. Try printing out your object literal to check that everything looks alright. For example, here is what mine looks like for someone with no kids and one other pet:
+When the submit button is clicked AND all data is determined to be valid (required fields are filled in), create a JavaScript object literal that stores all the data entered by the user.
+- Remember that some questions in the form have follow up questions, so you will have to think about how to store those responses too.
+- If that feels too challenging, remove the follow up questions from the form.
+- When you are done, try printing out your object literal to check that everything looks alright. For example, here is what mine looks like for someone with no kids and one other pet:
 
 ```
 {
@@ -68,7 +75,9 @@ When the submit button is clicked AND all data is determined to be valid (requir
 }
 ```
 
-The last step in this exercise is to store your object in `localStorage`. Don’t forget to convert the data to JSON using `JSON.stringify(someObject)`. Check that your object is stored properly by typing `localStorage` in Chrome’s JavaScript console OR by going to the Application tab in Chrome Dev Tools as you did in stage 1. You may see backslashes (`\`) in your stored data. This is OK. The backslashes are added automatically when string data contains double quotes. The backslashes will be removed when the data is converted back to a JS object. 
+The last step in this exercise is to store your object in `localStorage`. 
+- Don’t forget to convert the data to JSON using `JSON.stringify(someObject)`.
+- Check that your object is stored properly by typing `localStorage` in Chrome’s JavaScript console OR by going to the Application tab in Chrome Dev Tools as you did in stage 1. You may see backslashes (`\`) in your stored data. This is OK. The backslashes are added automatically when string data contains double quotes. The backslashes will be removed when the data is converted back to a JS object. 
 
 ### Exercise 3.2: Working with JSON arrays
 
